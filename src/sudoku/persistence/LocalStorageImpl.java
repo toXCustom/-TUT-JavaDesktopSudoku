@@ -3,12 +3,11 @@ package sudoku.persistence;
 import sudoku.problemdomain.IStorage;
 import sudoku.problemdomain.SudokuGame;
 
-import javax.swing.*;
 import java.io.*;
 
 public class LocalStorageImpl implements IStorage {
 
-    private static File GAME_DATA = new File(
+    private final static File GAME_DATA = new File(
             System.getProperty("user.home"),
             "gamedata.txt"
     );
@@ -32,6 +31,7 @@ public class LocalStorageImpl implements IStorage {
         try {
           SudokuGame gameState = (SudokuGame) objectInputStream.readObject();
           objectInputStream.close();
+          return gameState;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             throw new IOException("File not Found");
