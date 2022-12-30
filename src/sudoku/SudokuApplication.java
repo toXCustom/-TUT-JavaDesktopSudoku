@@ -1,6 +1,11 @@
 package sudoku;
 
 import javafx.application.Application;
+import javafx.stage.Stage;
+import sudoku.userinterface.IUserInterfaceContract;
+import sudoku.userinterface.UserInterfaceImpl;
+
+import java.io.IOException;
 
 public class SudokuApplication extends Application {
     private IUserInterfaceContract.View uiImpl;
@@ -20,5 +25,10 @@ public class SudokuApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
     }
 }
